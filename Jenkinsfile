@@ -2,13 +2,11 @@ pipeline {
   agent any
   stages {
     stage('Print') {
+      input {
+        message 'Should we continue?'
+      }
       steps {
-        sh '''echo Sleeping 15...
-sleep 15
-echo Sleeping 15...
-sleep 15
-echo Sleeping 15...
-sleep 15'''
+        sh 'echo Thank you!'
       }
     }
   }
