@@ -1,13 +1,19 @@
 pipeline {
-  agent any
+  agent none
   stages {
-    stage('Print') {
+    stage('Input') {
       options {
         timeout(time: 10, unit: 'SECONDS')
       }
       input {
         message 'Should we continue?'
       }
+      steps {
+        echo 'Where does this run?'
+      }
+    }
+    stage('Print') {
+      agent any
       steps {
         sh 'echo Thank you!'
       }
